@@ -23,15 +23,21 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping(value = "/signip", method = RequestMethod.GET)
-    String signup(String name, String password) {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    String login(String name, String password) {
 
         User user = new User();
         user.setUserName(name);
         user.setUserPassword(password);
         userService.save(user);
-        return Result.create(0, "注册成功", user);
+        return Result.create(0, "登陆成功", user);
+    }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    String test() {
+        return Result.create(0, "登陆成功", null);
     }
 
 }

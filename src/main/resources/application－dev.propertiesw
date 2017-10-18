@@ -1,7 +1,7 @@
 #server.port=8080
 
 ## 数据库连接
-spring.datasource.url=jdbc:mysql://localhost:3306/frpg
+spring.datasource.url=jdbc:mysql://localhost:3306/frpg?\
   useUnicode=true&characterEncoding=utf-8&useSSL=true&autoReconnect=true
 
 ## 用户名
