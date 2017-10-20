@@ -19,11 +19,14 @@ public class Result<D> {
         return sGson.toJson(this);
     }
 
-    public  static <D> String create(int code, String msg, D data) {
+    public static <D> String create(int code, String msg, D data) {
         Result<D> result = new Result<>();
         result.code = code;
         result.msg = msg;
         result.data = data;
         return result.toJson();
     }
+
+
+
 }

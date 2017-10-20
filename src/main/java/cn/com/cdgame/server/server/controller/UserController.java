@@ -23,14 +23,20 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    String login(String name, String password) {
+    @RequestMapping(value = "/register", method = RequestMethod.POST,
+            params = {"name", "password"})
+    String register(String name, String password) {
 
         User user = new User();
         user.setUserName(name);
         user.setUserPassword(password);
-        userService.save(user);
-        return Result.create(0, "登陆成功", user);
+        if (userService.findByUserName(name) == null) {
+            userService.save(user);
+            return Result.create(0, "注册成功", user);
+        } else {
+            return Result.create(-1, "该账号已经被注册了", null);
+        }
+
     }
 
 

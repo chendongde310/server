@@ -1,0 +1,38 @@
+package cn.com.cdgame.server.server.controller;
+
+import cn.com.cdgame.server.server.pojo.Item;
+import cn.com.cdgame.server.server.service.UserService;
+import cn.com.cdgame.server.server.tools.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * 作者：陈东  —  www.renwey.com
+ * 日期：2017/10/18 - 上午11:50
+ * 注释：
+ */
+@Controller
+@EnableAutoConfiguration
+@RequestMapping("/item")
+public class ItemController {
+    @Autowired
+    private UserService userService;
+
+    @ResponseBody
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    String create(String name) {
+        Item item = new Item();
+        item.setName(name);
+        item.setDepict("没有说明的一件装备");
+        item.setLevel(20);
+        return Result.create(0, "创建物品成功", item);
+    }
+
+
+
+
+}
