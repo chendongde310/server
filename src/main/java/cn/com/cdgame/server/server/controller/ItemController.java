@@ -1,7 +1,7 @@
 package cn.com.cdgame.server.server.controller;
 
 import cn.com.cdgame.server.server.pojo.Item;
-import cn.com.cdgame.server.server.service.UserService;
+import cn.com.cdgame.server.server.service.ItemService;
 import cn.com.cdgame.server.server.tools.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/item")
 public class ItemController {
     @Autowired
-    private UserService userService;
+    private ItemService itemService;
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.GET)
@@ -29,6 +29,7 @@ public class ItemController {
         item.setName(name);
         item.setDepict("没有说明的一件装备");
         item.setLevel(20);
+        itemService.save(item);
         return Result.create(0, "创建物品成功", item);
     }
 
