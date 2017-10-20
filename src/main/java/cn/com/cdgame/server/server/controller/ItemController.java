@@ -29,7 +29,8 @@ public class ItemController {
         item.setName(name);
         item.setDepict("没有说明的一件装备");
         item.setLevel(20);
-        itemService.save(item);
+        itemService.saveAndFlush(item);
+
         return Result.create(0, "创建物品成功", item);
     }
 
