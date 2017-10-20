@@ -6,9 +6,7 @@ import cn.com.cdgame.server.server.tools.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 作者：陈东  —  www.renwey.com
@@ -40,10 +38,44 @@ public class UserController {
     }
 
 
-    @ResponseBody
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    String test() {
-        return Result.create(0, "登陆成功", null);
+    /**
+     * 查询个人信息
+     *
+     */
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public @ResponseBody
+    String info(String name) {
+        User user = userService.findByUserName(name);
+        if(user ==null){
+            return Result.create(-1, "该用户名尚未注册", null);
+        }else {
+            return Result.create(0, "查询成功", userService.findByUserName(name));
+        }
+
     }
+
+    /**
+     * 登录
+     *
+     *
+     *
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public @ResponseBody
+    String login( String name, String password) {
+        User user = userService.findByUserName(name);
+        if(user ==null){
+            return Result.create(-1, "该用户名尚未注册", null);
+        }else {
+            return Result.create(0, "登陆成功", userService.findByUserName(name));
+        }
+
+    }
+
+
+
+
+
+
 
 }
