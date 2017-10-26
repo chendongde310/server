@@ -63,7 +63,7 @@ public class UserController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
-    String login(String id, String password) {
+    String login(Long id, String password) {
         User user = userService.findById(id);
         if (user == null) {
             return Result.create(-1, "该用户名尚未注册", null);

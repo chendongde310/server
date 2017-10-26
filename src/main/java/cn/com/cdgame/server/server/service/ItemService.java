@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
  * 注释：
  */
 @Transactional
-public interface ItemService extends CrudRepository<Item, String> {
+public interface ItemService extends CrudRepository<Item, Long> {
 
-    User findById(String id);
+    User findById(Long id);
 }

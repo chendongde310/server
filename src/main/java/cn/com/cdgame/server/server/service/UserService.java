@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 日期：2017/10/18 - 上午11:46
  * 注释：
  */
-public interface UserService extends JpaRepository<User, String> {
+public interface UserService extends JpaRepository<User, Long> {
 
-    User findById(String id);
+    User findById(Long id);
 
     User findByUserName(String userName);
 }
