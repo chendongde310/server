@@ -8,27 +8,23 @@ import javax.persistence.*;
  * 注释：
  */
 @Entity
-@Table(name = "t_user")
+@Table(name = "f_user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_password")
     private String userPassword;
-    @Column(name = "nick_nmae")
-    private String nickNmae;
 
-    private String email;
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,19 +44,4 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public String getNickNmae() {
-        return nickNmae;
-    }
-
-    public void setNickNmae(String nickNmae) {
-        this.nickNmae = nickNmae;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

@@ -6,7 +6,9 @@ import cn.com.cdgame.server.server.tools.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 作者：陈东  —  www.renwey.com
@@ -40,15 +42,14 @@ public class UserController {
 
     /**
      * 查询个人信息
-     *
      */
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public @ResponseBody
     String info(String name) {
         User user = userService.findByUserName(name);
-        if(user ==null){
+        if (user == null) {
             return Result.create(-1, "该用户名尚未注册", null);
-        }else {
+        } else {
             return Result.create(0, "查询成功", userService.findByUserName(name));
         }
 
@@ -57,25 +58,24 @@ public class UserController {
     /**
      * 登录
      *
-     *
-     *
+     * @param id 用户ID，在客户端保存在本地
+     * @return 用户信息
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
-    String login( String name, String password) {
-        User user = userService.findByUserName(name);
-        if(user ==null){
+    String login(String id, String password) {
+        User user = userService.findById(Long.valueOf(id));
+        if (user == null) {
             return Result.create(-1, "该用户名尚未注册", null);
-        }else {
-            return Result.create(0, "登陆成功", userService.findByUserName(name));
+        } else {
+            if (user.getUserPassword().equals(password)) {
+                System.out.println("登陆成功:" + user);
+                return Result.create(0, "登陆成功", user);
+            } else {
+                return Result.create(-2, "登陆标识密码错误", user);
+            }
         }
-
     }
-
-
-
-
-
 
 
 }
