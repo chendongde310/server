@@ -77,7 +77,7 @@ public class Utlis {
 
         StringBuffer itemcode = new StringBuffer("\n\n//" + i.getName() + "(" + getType(i.getType()) + ")").append("\n");
         itemcode.append("//-----------------------------------------\n");
-        itemcode.append("call YDLocal1Set(string, 'itemId', '装备ID')").append("\n");
+        itemcode.append("call YDLocal1Set(string, \"itemId\", \"装备ID\")").append("\n");
         itemcode.append("call CreateItemDatas(YDLocal1Get(string, \"itemId\"),\"图标ID\",")
                 .append(i.getName()).append("\"").append(",")
                 .append("\"|cffffcc00E").append(i.getDepict()).append("\"").append(",")
