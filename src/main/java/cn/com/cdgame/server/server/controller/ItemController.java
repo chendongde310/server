@@ -59,7 +59,7 @@ public class ItemController {
         if (item == null) {
             return Result.create(-1, "找不到该物品", null);
         } else {
-            return Result.create(0, "登陆成功", Utlis.code(item));
+            return Result.create(0, "转换成功", Utlis.code(item));
         }
 
     }

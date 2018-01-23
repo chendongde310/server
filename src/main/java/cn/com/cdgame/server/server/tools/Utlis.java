@@ -62,7 +62,7 @@ public class Utlis {
         itemcode.append(i.getSx5()).append(",");//必带属性5
         itemcode.append(i.getSx6()).append(")").append("\n");//必带属性6
         itemcode.append("//-----------------------------------------\n\n");
-        return itemcode.toString();
+        return itemcode.toString().replaceAll("\n","\\\\n");
 
 
     }
