@@ -2,6 +2,9 @@ package cn.com.cdgame.server.server.tools;
 
 import cn.com.cdgame.server.server.pojo.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by chen on 2018/1/23.
  */
@@ -97,5 +100,67 @@ public class Utlis {
         return itemcode.toString();
 
 
+    }
+
+    public static List<String> getSxList() {
+        List<String> list = new ArrayList<>();
+        list.add("力量");
+        list.add("敏捷");
+        list.add("智力");
+        list.add("基础伤害");
+        list.add("每秒攻击次数%");
+        list.add("冷却减缩%");
+        list.add("物理伤害加成%");
+        list.add("法术伤害加成%");
+        list.add("寒冰伤害加成%");
+        list.add("火焰伤害加成%");
+        list.add("闪电伤害加成%");
+        list.add("自然伤害加成%");
+        list.add("死亡伤害加成%");
+        list.add("神圣伤害加成%");
+        list.add("暗影伤害加成%");
+        list.add("毒性伤害加成%");
+        list.add("物理暴击几率%");
+        list.add("物理暴击伤害%");
+        list.add("法术暴击几率%");
+        list.add("法术暴击伤害%");
+        list.add("物理穿透%");
+        list.add("法术穿透%");
+        list.add("护甲");
+        list.add("魔法抗性");
+        list.add("闪避几率%");
+        list.add("格挡几率%");
+        list.add("伤害减免%");
+        list.add("生命值");
+        list.add("体能");
+        list.add("生命回复");
+        list.add("物理吸血%");
+        list.add("法术吸血%");
+        list.add("魔法值");
+        list.add("魔能");
+        list.add("魔法回复");
+        list.add("魔法消耗减缩%");
+        list.add("移动速度%");
+        list.add("金币获取量%");
+        list.add("魔宝寻获率%");
+        list.add("经验加成%");
+        return list;
+    }
+
+    public static List<String> getTypeList() {
+        List<String> list = new ArrayList<>();
+        list.add("头盔");
+        list.add("护肩");
+        list.add("项链");
+        list.add("胸甲");
+        list.add("腰带");
+        list.add("裤子");
+        list.add("护腿");
+        list.add("鞋子");
+        list.add("手套");
+        list.add("戒指");
+        list.add("主武器");
+        list.add("副手");
+        return list;
     }
 }

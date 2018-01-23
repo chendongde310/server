@@ -17,5 +17,7 @@ public interface ItemService extends CrudRepository<Item, Long> {
 
     Item findById(Long id);
 
+    Item findByName(String name);
+
     List<Item> findAllBy();
 }
