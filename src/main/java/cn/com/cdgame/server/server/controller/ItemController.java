@@ -1,6 +1,7 @@
 package cn.com.cdgame.server.server.controller;
 
 import cn.com.cdgame.server.server.pojo.Item;
+import cn.com.cdgame.server.server.pojo.User;
 import cn.com.cdgame.server.server.service.ItemService;
 import cn.com.cdgame.server.server.tools.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ItemController {
     @Autowired
     private ItemService itemService;
+
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST,

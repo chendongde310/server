@@ -3,7 +3,7 @@ package cn.com.cdgame.server.server.pojo;
 import javax.persistence.*;
 
 /**
- * 作者：陈东  —  www.renwey.com
+ * 作者：陈东
  * 日期：2017/10/18 下午3:52
  * 注释：
  */
@@ -22,34 +22,64 @@ public class Item {
     public void setId(Long id) {
         this.id = id;
     }
-
-    @Column(name = "item_iconId")
-    private int iconId; //图标id
-    @Column(name = "item_level")
-    private int level;//物品等级
-    @Column(name = "item_clazz")
-    private int clazz;//物品适用职业（0：无职业，1：战士。2：法师，3：刺客）
-    @Column(name = "item_price")
-    private int price; //物品售价
-    @Column(name = "item_itemType")
-    private int itemType; //物品的种类 （ 1.装备 2.道具 3.材料 4.杂货 5. 特殊物品）
-    @Column(name = "item_grade")
-    private int grade;//物品评分（0.浅黑色 1.绿色 2.蓝色 3.紫色 4.橙色 5.粉色 6.红色）从低到高
-    @Column(name = "item_bind")
-    private boolean bind; //物品是否绑定
-    @Column(name = "item_wear")
-    private boolean wear; //是否可以佩戴
     @Column(name = "item_name")
     private String name; //物品名称
+
+    @Column(name = "item_type")
+    private int type; //物品的类型
+
+    @Column(name = "item_level")
+    private int level;//物品佩戴等级
+
+    @Column(name = "item_rank")
+    private int rank;//装备品质
+
     @Column(name = "item_depict")
     private String depict; //物品描述
 
-    public int getIconId() {
-        return iconId;
+    @Column(name = "item_random")
+    private String random; //装备随机属性数（数字选择 0-6）
+
+    @Column(name = "item_sx1")
+    private int sx1;//装备必带属性1
+
+    @Column(name = "item_sx2")
+    private int sx2;//装备必带属性2
+
+    @Column(name = "item_sx3")
+    private int sx3;//装备必带属性3
+
+    @Column(name = "item_sx4")
+    private int sx4;//装备必带属性4
+
+    @Column(name = "item_sx5")
+    private int sx5;//装备必带属性5
+
+    @Column(name = "item_sx6")
+    private int sx6;//装备必带属性6
+
+    @Column(name = "item_skill")
+    private int skill; //装备被动技能
+
+
+    @Column(name = "item_author")
+    private boolean author; //装备作者
+
+
+    public String getName() {
+        return name;
     }
 
-    public void setIconId(int iconId) {
-        this.iconId = iconId;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getLevel() {
@@ -60,60 +90,12 @@ public class Item {
         this.level = level;
     }
 
-    public int getClazz() {
-        return clazz;
+    public int getRank() {
+        return rank;
     }
 
-    public void setClazz(int clazz) {
-        this.clazz = clazz;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(int itemType) {
-        this.itemType = itemType;
-    }
-
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public boolean isBind() {
-        return bind;
-    }
-
-    public void setBind(boolean bind) {
-        this.bind = bind;
-    }
-
-    public boolean isWear() {
-        return wear;
-    }
-
-    public void setWear(boolean wear) {
-        this.wear = wear;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public String getDepict() {
@@ -122,5 +104,77 @@ public class Item {
 
     public void setDepict(String depict) {
         this.depict = depict;
+    }
+
+    public String getRandom() {
+        return random;
+    }
+
+    public void setRandom(String random) {
+        this.random = random;
+    }
+
+    public int getSx1() {
+        return sx1;
+    }
+
+    public void setSx1(int sx1) {
+        this.sx1 = sx1;
+    }
+
+    public int getSx2() {
+        return sx2;
+    }
+
+    public void setSx2(int sx2) {
+        this.sx2 = sx2;
+    }
+
+    public int getSx3() {
+        return sx3;
+    }
+
+    public void setSx3(int sx3) {
+        this.sx3 = sx3;
+    }
+
+    public int getSx4() {
+        return sx4;
+    }
+
+    public void setSx4(int sx4) {
+        this.sx4 = sx4;
+    }
+
+    public int getSx5() {
+        return sx5;
+    }
+
+    public void setSx5(int sx5) {
+        this.sx5 = sx5;
+    }
+
+    public int getSx6() {
+        return sx6;
+    }
+
+    public void setSx6(int sx6) {
+        this.sx6 = sx6;
+    }
+
+    public int getSkill() {
+        return skill;
+    }
+
+    public void setSkill(int skill) {
+        this.skill = skill;
+    }
+
+    public boolean isAuthor() {
+        return author;
+    }
+
+    public void setAuthor(boolean author) {
+        this.author = author;
     }
 }
