@@ -4,6 +4,7 @@ import cn.com.cdgame.server.server.pojo.Item;
 import cn.com.cdgame.server.server.pojo.User;
 import cn.com.cdgame.server.server.service.ItemService;
 import cn.com.cdgame.server.server.tools.Result;
+import cn.com.cdgame.server.server.tools.Utlis;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -29,8 +30,8 @@ public class ItemController {
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST,
-            params = {"name"})
-    String create(String name) {
+            params = {"name","type","level","rank","depict","random","sx1","sx2","sx3","sx4","sx5","sx6","skill","author"})
+    String create(String name,int type,int level,int rank,String depict,int random,int sx1,int sx2,int sx3,int sx4,int sx5,int sx6,String skill,String author) {
 
         Item item = new Item();
         item.setName(name);
@@ -47,6 +48,19 @@ public class ItemController {
         String list() {
         List<Item> item = itemService.findAllBy();
         return Result.create(200, "查询成功", new Gson().toJson(item));
+
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/code", method = RequestMethod.GET)
+    String code(Long id) {
+        Item item = itemService.findById(id);
+        if (item == null) {
+            return Result.create(-1, "找不到该物品", null);
+        } else {
+            return Result.create(0, "登陆成功", Utlis.code(item));
+        }
 
     }
 
