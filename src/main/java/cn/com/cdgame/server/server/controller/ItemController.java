@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * 作者：陈东  —  www.renwey.com
  * 日期：2017/10/18 - 上午11:50
@@ -34,13 +36,19 @@ public class ItemController {
         item.setDepict("没有说明的一件装备");
         item.setLevel(20);
         itemService.save(item);
-
-        return Result.create(0, "创建物品成功", item);
+        return Result.create(200, "创建物品成功", item);
 
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = "/list", method = RequestMethod.GET,
+            params = {"name"})
+        String list(String name) {
+        List<Item> item = itemService.findAllBy();
+        return Result.create(200, "查询成功", itemService.findAllBy());
 
+    }
 
 
 }

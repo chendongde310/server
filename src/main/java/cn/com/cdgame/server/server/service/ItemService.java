@@ -5,6 +5,7 @@ import cn.com.cdgame.server.server.pojo.User;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * 作者：陈东  —  www.renwey.com
@@ -14,5 +15,7 @@ import javax.transaction.Transactional;
 @Transactional
 public interface ItemService extends CrudRepository<Item, Long> {
 
-    User findById(Long id);
+    Item findById(Long id);
+
+    List<Item> findAllBy();
 }

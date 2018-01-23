@@ -22,6 +22,7 @@ public class Item {
     public void setId(Long id) {
         this.id = id;
     }
+
     @Column(name = "item_name")
     private String name; //物品名称
 
