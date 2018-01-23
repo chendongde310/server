@@ -52,7 +52,7 @@ public class ItemController {
             itemService.save(item);
             return Result.create(200, "创建物品成功", item);
         } else {
-            return Result.create(202, "该名称物品已经存在，请修改名称", item);
+            return Result.create(202, "存在同名物品，请修改名称", item);
         }
 
     }
@@ -69,8 +69,8 @@ public class ItemController {
 
     @ResponseBody
     @RequestMapping(value = "/code", method = RequestMethod.GET)
-    String code(Long id) {
-        Item item = itemService.findById(id);
+    String code(String name) {
+        Item item = itemService.findByName(name);
         if (item == null) {
             return Result.create(-1, "找不到该物品", null);
         } else {
