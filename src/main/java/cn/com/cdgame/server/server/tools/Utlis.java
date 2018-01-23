@@ -39,6 +39,7 @@ public class Utlis {
     }
 
 
+
     //创建物品数据，传入装备ID,可破坏物ID，装备名字，装备介绍，装备类型，装备品质，装备等级
     // 随机属性数量，必带属性1，必带属性2，必带属性3，必带属性4，必带属性5，必带属性6
     public static String code(Item i) {
@@ -62,7 +63,7 @@ public class Utlis {
         itemcode.append(i.getSx5()).append(",");//必带属性5
         itemcode.append(i.getSx6()).append(")").append("\n");//必带属性6
         itemcode.append("//-----------------------------------------\n\n");
-        return itemcode.toString().replaceAll("\n","\\\\n");
+        return itemcode.toString();
 
 
     }
