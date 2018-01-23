@@ -42,9 +42,8 @@ public class ItemController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.GET,
-            params = {"name"})
-        String list(String name) {
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+        String list() {
         List<Item> item = itemService.findAllBy();
         return Result.create(200, "查询成功", itemService.findAllBy());
 
