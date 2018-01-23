@@ -32,11 +32,21 @@ public class ItemController {
     @RequestMapping(value = "/create", method = RequestMethod.POST,
             params = {"name","type","level","rank","depict","random","sx1","sx2","sx3","sx4","sx5","sx6","skill","author"})
     String create(String name,int type,int level,int rank,String depict,int random,int sx1,int sx2,int sx3,int sx4,int sx5,int sx6,String skill,String author) {
-
         Item item = new Item();
         item.setName(name);
-        item.setDepict("没有说明的一件装备");
-        item.setLevel(20);
+        item.setType(type);
+        item.setLevel(level);
+        item.setRank(rank);
+        item.setDepict(depict);
+        item.setRandom(random);
+        item.setSx1(sx1);
+        item.setSx2(sx2);
+        item.setSx3(sx3);
+        item.setSx4(sx4);
+        item.setSx5(sx5);
+        item.setSx6(sx6);
+        item.setSkill(skill);
+        item.setAuthor(author);
         itemService.save(item);
         return Result.create(200, "创建物品成功", item);
 
