@@ -4,6 +4,7 @@ import cn.com.cdgame.server.server.pojo.Item;
 import cn.com.cdgame.server.server.pojo.User;
 import cn.com.cdgame.server.server.service.ItemService;
 import cn.com.cdgame.server.server.tools.Result;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,7 @@ public class ItemController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
         String list() {
         List<Item> item = itemService.findAllBy();
-        return Result.create(200, "查询成功", itemService.findAllBy());
+        return Result.create(200, "查询成功", new Gson().toJson(item));
 
     }
 

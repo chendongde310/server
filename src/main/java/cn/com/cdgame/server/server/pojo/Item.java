@@ -39,7 +39,7 @@ public class Item {
     private String depict; //物品描述
 
     @Column(name = "item_random")
-    private String random; //装备随机属性数（数字选择 0-6）
+    private int random; //装备随机属性数（数字选择 0-6）
 
     @Column(name = "item_sx1")
     private int sx1;//装备必带属性1
@@ -60,12 +60,19 @@ public class Item {
     private int sx6;//装备必带属性6
 
     @Column(name = "item_skill")
-    private int skill; //装备被动技能
+    private String skill; //装备被动技能
 
 
     @Column(name = "item_author")
-    private boolean author; //装备作者
+    private String author; //装备作者
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public String getName() {
         return name;
@@ -107,13 +114,7 @@ public class Item {
         this.depict = depict;
     }
 
-    public String getRandom() {
-        return random;
-    }
 
-    public void setRandom(String random) {
-        this.random = random;
-    }
 
     public int getSx1() {
         return sx1;
@@ -163,19 +164,19 @@ public class Item {
         this.sx6 = sx6;
     }
 
-    public int getSkill() {
+    public int getRandom() {
+        return random;
+    }
+
+    public void setRandom(int random) {
+        this.random = random;
+    }
+
+    public String getSkill() {
         return skill;
     }
 
-    public void setSkill(int skill) {
+    public void setSkill(String skill) {
         this.skill = skill;
-    }
-
-    public boolean isAuthor() {
-        return author;
-    }
-
-    public void setAuthor(boolean author) {
-        this.author = author;
     }
 }
