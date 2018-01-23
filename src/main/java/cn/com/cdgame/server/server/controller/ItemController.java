@@ -23,8 +23,10 @@ public class ItemController {
     private ItemService itemService;
 
     @ResponseBody
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.POST,
+            params = {"name"})
     String create(String name) {
+
         Item item = new Item();
         item.setName(name);
         item.setDepict("没有说明的一件装备");
@@ -32,7 +34,9 @@ public class ItemController {
         itemService.save(item);
 
         return Result.create(0, "创建物品成功", item);
+
     }
+
 
 
 
