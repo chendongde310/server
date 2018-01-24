@@ -64,9 +64,9 @@ public class Utlis {
             case 10:
                 return "戒指";
             case 11:
-                return "主武器";
+                return "武器";
             case 12:
-                return "副武器";
+                return "副手";
             default:
                 return "未知";
         }
@@ -82,7 +82,6 @@ public class Utlis {
         itemcode.append("//-----------------------------------------\n");
         itemcode.append("call YDLocal1Set(string, \"itemId\", \"装备ID\")").append("\n");
         itemcode.append("call CreateItemDatas(YDLocal1Get(string, \"itemId\"),\"图标ID\",")
-                .append(i.getName()).append("\"").append(",")
                 .append("\"|cffffcc00E").append(i.getDepict()).append("\"").append(",")
                 .append(i.getType()).append(",")
                 .append(i.getRank()).append(",")

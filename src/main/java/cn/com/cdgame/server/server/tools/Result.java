@@ -3,7 +3,7 @@ package cn.com.cdgame.server.server.tools;
 import com.google.gson.Gson;
 
 /**
- * 作者：陈东  —  www.renwey.com
+ * 作者：陈东  —
  * 日期：2017/10/18 - 上午11:47
  * 注释：
  */
