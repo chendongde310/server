@@ -58,7 +58,7 @@ public class ItemController {
             itemWQService.save(itemWQ);
             return Result.create(200, "创建武器成功", itemWQ);
         } else {
-            return Result.create(202, "存在同名武器，请修改名称", itemWQ);
+            return Result.create(202, "存在同名武器，请修改名称", null);
         }
 
     }
@@ -88,7 +88,7 @@ public class ItemController {
             itemFJService.save(itemFJ);
             return Result.create(200, "创建防具成功", itemFJ);
         } else {
-            return Result.create(202, "存在同名防具，请修改名称", itemFJ);
+            return Result.create(202, "存在同名防具，请修改名称", null);
         }
 
     }
@@ -121,7 +121,7 @@ public class ItemController {
             itemSPService.save(itemSP);
             return Result.create(200, "创建饰品成功", itemSP);
         } else {
-            return Result.create(202, "存在同名饰品，请修改名称", itemSP);
+            return Result.create(202, "存在同名饰品，请修改名称", null);
         }
 
     }

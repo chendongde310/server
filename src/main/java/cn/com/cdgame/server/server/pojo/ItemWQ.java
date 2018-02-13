@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "t_item_wq")
 public class ItemWQ {
 
-    public static final int RANDOM = 666;
+    public static final int RANDOM = 99;
     public static final int NO = 0;
     @Column(name = "item_with")
     private int with; //武器偏向
