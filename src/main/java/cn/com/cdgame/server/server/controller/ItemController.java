@@ -1,11 +1,16 @@
 package cn.com.cdgame.server.server.controller;
 
 import cn.com.cdgame.server.server.pojo.Item;
-import cn.com.cdgame.server.server.pojo.User;
-import cn.com.cdgame.server.server.service.ItemService;
+import cn.com.cdgame.server.server.pojo.ItemFJ;
+import cn.com.cdgame.server.server.pojo.ItemSP;
+import cn.com.cdgame.server.server.pojo.ItemWQ;
+import cn.com.cdgame.server.server.service.ItemFJService;
+import cn.com.cdgame.server.server.service.ItemSPService;
+import cn.com.cdgame.server.server.service.ItemSPService;
+import cn.com.cdgame.server.server.service.ItemWQService;
 import cn.com.cdgame.server.server.tools.Result;
 import cn.com.cdgame.server.server.tools.Utlis;
-import com.google.gson.Gson;
+import com.sun.tools.javac.jvm.Items;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -25,59 +30,130 @@ import java.util.List;
 @RequestMapping("/item")
 public class ItemController {
     @Autowired
-    private ItemService itemService;
+    private ItemFJService itemFJService;
+    private ItemWQService itemWQService;
+    private ItemSPService itemSPService;
 
 
     @ResponseBody
-    @RequestMapping(value = "/create", method = RequestMethod.POST,
-            params = {"name", "type", "level", "rank", "depict", "random", "sx1", "sx2", "sx3", "sx4", "sx5", "sx6", "skill", "author"})
-    String create(String name, int type, int level, int rank, String depict, int random, int sx1, int sx2, int sx3, int sx4, int sx5, int sx6, String skill, String author) {
-        Item item = itemService.findByName(name);
-        if (item == null) {
-            item = new Item();
-            item.setName(name);
-            item.setType(type);
-            item.setLevel(level);
-            item.setRank(rank);
-            item.setDepict(depict);
-            item.setRandom(random);
-            item.setSx1(sx1);
-            item.setSx2(sx2);
-            item.setSx3(sx3);
-            item.setSx4(sx4);
-            item.setSx5(sx5);
-            item.setSx6(sx6);
-            item.setSkill(skill);
-            item.setAuthor(author);
-            itemService.save(item);
-            return Result.create(200, "创建物品成功", item);
+    @RequestMapping(value = "/createWQ", method = RequestMethod.POST,
+            params = {"name", "type", "level", "rank", "depict","with","base1","base2","base3","sx0","sx1","sx12","sx2","sx22","skill", "author"})
+    String createWQ(String name, int type, int level, int rank, String depict,
+                    int with, int base1, int base2, int base3, int sx0, int sx1, int sx12,int sx2,int sx22,  String skill, String author) {
+         ItemWQ itemWQ = itemWQService.findByName(name);
+        if (itemWQ == null) {
+            itemWQ = new ItemWQ();
+            itemWQ.setName(name);
+            itemWQ.setType(type);
+            itemWQ.setLevel(level);
+            itemWQ.setRank(rank);
+            itemWQ.setDepict(depict);
+            itemWQ.setSkill(skill);
+            itemWQ.setAuthor(author);
+            itemWQ.setWith(with);
+            itemWQ.setBase1(base1);
+            itemWQ.setBase2(base2);
+            itemWQ.setBase3(base3);
+            itemWQ.setSx0(sx0);
+            itemWQ.setSx1(sx1);
+            itemWQ.setSx12(sx12);
+            itemWQ.setSx2(sx2);
+            itemWQ.setSx22(sx22);
+            itemWQService.save(itemWQ);
+            return Result.create(200, "创建武器成功", itemWQ);
         } else {
-            return Result.create(202, "存在同名物品，请修改名称", item);
+            return Result.create(202, "存在同名武器，请修改名称", itemWQ);
         }
 
     }
 
 
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    String list() {
-        List<Item> item = itemService.findAllBy();
-        return Result.create(200, "获取装备列表成功", item);
+    @RequestMapping(value = "/createFJ", method = RequestMethod.POST,
+            params = {"name", "type", "level", "rank", "depict","with","base1","base2","base3","sx0","sx1","sx1","sx3","skill", "author"})
+    String createFJ(String name, int type, int level, int rank, String depict, int with, int base1, int base2, int base3, int sx0, int sx1, int sx2,int sx3, String skill, String author) {
+        ItemFJ itemFJ = itemFJService.findByName(name);
+        if (itemFJ == null) {
+            itemFJ = new ItemFJ();
+            itemFJ.setName(name);
+            itemFJ.setType(type);
+            itemFJ.setLevel(level);
+            itemFJ.setRank(rank);
+            itemFJ.setDepict(depict);
+            itemFJ.setSkill(skill);
+            itemFJ.setAuthor(author);
+            itemFJ.setWith(with);
+            itemFJ.setBase1(base1);
+            itemFJ.setBase2(base2);
+            itemFJ.setBase3(base3);
+            itemFJ.setSx0(sx0);
+            itemFJ.setSx1(sx1);
+            itemFJ.setSx2(sx2);
+            itemFJ.setSx3(sx3);
+            itemFJService.save(itemFJ);
+            return Result.create(200, "创建防具成功", itemFJ);
+        } else {
+            return Result.create(202, "存在同名防具，请修改名称", itemFJ);
+        }
 
     }
 
 
     @ResponseBody
-    @RequestMapping(value = "/code", method = RequestMethod.GET)
-    String code(String name) {
-        Item item = itemService.findByName(name);
-        if (item == null) {
-            return Result.create(-1, "找不到该物品", null);
+    @RequestMapping(value = "/createSP", method = RequestMethod.POST,
+            params = {"name", "type", "level", "rank", "depict","with","base1","base2","base3","sx0","sx1","sx12","sx2","sx3","skill", "author"})
+    String createSP(String name, int type, int level, int rank, String depict,
+                    int with, int base1, int base2, int base3, int sx0, int sx1, int sx12,int sx2,int sx3,  String skill, String author) {
+        ItemSP itemSP = itemSPService.findByName(name);
+        if (itemSP == null) {
+            itemSP = new ItemSP();
+            itemSP.setName(name);
+            itemSP.setType(type);
+            itemSP.setLevel(level);
+            itemSP.setRank(rank);
+            itemSP.setDepict(depict);
+            itemSP.setSkill(skill);
+            itemSP.setAuthor(author);
+            itemSP.setWith(with);
+            itemSP.setBase1(base1);
+            itemSP.setBase2(base2);
+            itemSP.setBase3(base3);
+            itemSP.setSx0(sx0);
+            itemSP.setSx1(sx1);
+            itemSP.setSx2(sx2);
+            itemSP.setSx12(sx12);
+            itemSP.setSx3(sx3);
+            itemSPService.save(itemSP);
+            return Result.create(200, "创建饰品成功", itemSP);
         } else {
-            return Result.create(0, "转换成功", Utlis.code(item));
+            return Result.create(202, "存在同名饰品，请修改名称", itemSP);
         }
 
     }
+
+
+
+
+//    @ResponseBody
+//    @RequestMapping(value = "/list", method = RequestMethod.GET)
+//    String list() {
+//        List<Item> item = itemSPService.findAllBy();
+//        return Result.create(200, "获取装备列表成功", item);
+//
+//    }
+//
+//
+//    @ResponseBody
+//    @RequestMapping(value = "/code", method = RequestMethod.GET)
+//    String code(String name) {
+//        Item item = itemService.findByName(name);
+//        if (item == null) {
+//            return Result.create(-1, "找不到该物品", null);
+//        } else {
+//            return Result.create(0, "转换成功", Utlis.code(item));
+//        }
+//
+//    }
 
 
     /**

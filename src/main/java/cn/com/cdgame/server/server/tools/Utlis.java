@@ -87,14 +87,14 @@ public class Utlis {
                 .append(i.getRank()).append(",")
                 .append(i.getLevel())
                 .append(")").append("\n");
-        itemcode.append("call AddItemAttributes(YDLocal1Get(string, \"itemId\")").append(",")
-                .append(i.getRandom()).append(",");//随机属性数量
-        itemcode.append(i.getSx1()).append(",");//必带属性1
-        itemcode.append(i.getSx2()).append(",");//必带属性2
-        itemcode.append(i.getSx3()).append(",");//必带属性3
-        itemcode.append(i.getSx4()).append(",");//必带属性4
-        itemcode.append(i.getSx5()).append(",");//必带属性5
-        itemcode.append(i.getSx6()).append(")").append("\n");//必带属性6
+//        itemcode.append("call AddItemAttributes(YDLocal1Get(string, \"itemId\")").append(",")
+//                .append(i.getRandom()).append(",");//随机属性数量
+//        itemcode.append(i.getSx1()).append(",");//必带属性1
+//        itemcode.append(i.getSx2()).append(",");//必带属性2
+//        itemcode.append(i.getSx3()).append(",");//必带属性3
+//        itemcode.append(i.getSx4()).append(",");//必带属性4
+//        itemcode.append(i.getSx5()).append(",");//必带属性5
+//        itemcode.append(i.getSx6()).append(")").append("\n");//必带属性6
         itemcode.append("//-----------------------------------------\n\n");
         return itemcode.toString();
 
