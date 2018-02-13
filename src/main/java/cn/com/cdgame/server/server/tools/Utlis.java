@@ -76,17 +76,17 @@ public class Utlis {
 
     //创建物品数据，传入装备ID,可破坏物ID，装备名字，装备介绍，装备类型，装备品质，装备等级
     // 随机属性数量，必带属性1，必带属性2，必带属性3，必带属性4，必带属性5，必带属性6
-    public static String code(Item i) {
-
-        StringBuffer itemcode = new StringBuffer("\n\n//" + i.getName() + "(" + getType(i.getType()) + ")").append("\n");
-        itemcode.append("//-----------------------------------------\n");
-        itemcode.append("call YDLocal1Set(string, \"itemId\", \"装备ID\")").append("\n");
-        itemcode.append("call CreateItemDatas(YDLocal1Get(string, \"itemId\"),\"图标ID\",")
-                .append("\"|cffffcc00E").append(i.getDepict()).append("\"").append(",")
-                .append(i.getType()).append(",")
-                .append(i.getRank()).append(",")
-                .append(i.getLevel())
-                .append(")").append("\n");
+//    public static String code(Item i) {
+//
+//        StringBuffer itemcode = new StringBuffer("\n\n//" + i.getName() + "(" + getType(i.getType()) + ")").append("\n");
+//        itemcode.append("//-----------------------------------------\n");
+//        itemcode.append("call YDLocal1Set(string, \"itemId\", \"装备ID\")").append("\n");
+//        itemcode.append("call CreateItemDatas(YDLocal1Get(string, \"itemId\"),\"图标ID\",")
+//                .append("\"|cffffcc00E").append(i.getDepict()).append("\"").append(",")
+//                .append(i.getType()).append(",")
+//                .append(i.getRank()).append(",")
+//                .append(i.getLevel())
+//                .append(")").append("\n");
 //        itemcode.append("call AddItemAttributes(YDLocal1Get(string, \"itemId\")").append(",")
 //                .append(i.getRandom()).append(",");//随机属性数量
 //        itemcode.append(i.getSx1()).append(",");//必带属性1
@@ -95,11 +95,9 @@ public class Utlis {
 //        itemcode.append(i.getSx4()).append(",");//必带属性4
 //        itemcode.append(i.getSx5()).append(",");//必带属性5
 //        itemcode.append(i.getSx6()).append(")").append("\n");//必带属性6
-        itemcode.append("//-----------------------------------------\n\n");
-        return itemcode.toString();
-
-
-    }
+//        itemcode.append("//-----------------------------------------\n\n");
+//        return itemcode.toString();
+//    }
 
     public static List<String> getSxList() {
         List<String> list = new ArrayList<>();
