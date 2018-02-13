@@ -1,16 +1,13 @@
 package cn.com.cdgame.server.server.controller;
 
-import cn.com.cdgame.server.server.pojo.Item;
 import cn.com.cdgame.server.server.pojo.ItemFJ;
 import cn.com.cdgame.server.server.pojo.ItemSP;
 import cn.com.cdgame.server.server.pojo.ItemWQ;
 import cn.com.cdgame.server.server.service.ItemFJService;
 import cn.com.cdgame.server.server.service.ItemSPService;
-import cn.com.cdgame.server.server.service.ItemSPService;
 import cn.com.cdgame.server.server.service.ItemWQService;
 import cn.com.cdgame.server.server.tools.Result;
 import cn.com.cdgame.server.server.tools.Utlis;
-import com.sun.tools.javac.jvm.Items;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
 
 /**
  * 作者：陈东
