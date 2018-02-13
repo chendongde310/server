@@ -1,7 +1,5 @@
 package cn.com.cdgame.server.server.service;
 
-import cn.com.cdgame.server.server.pojo.Item;
-import cn.com.cdgame.server.server.pojo.ItemFJ;
 import cn.com.cdgame.server.server.pojo.ItemSP;
 import org.springframework.data.repository.CrudRepository;
 
