@@ -12,8 +12,7 @@ public class ItemFJ {
 
     public static final int RANDOM = 666;
     public static final int NO = 0;
-    @Column(name = "item_with")
-    private int with; //护甲偏向
+
     @Column(name = "item_base1")
     private int base1; //护甲
     @Column(name = "item_base2")
@@ -111,13 +110,6 @@ public class ItemFJ {
         this.skill = skill;
     }
 
-    public int getWith() {
-        return with;
-    }
-
-    public void setWith(int with) {
-        this.with = with;
-    }
 
     public int getBase1() {
         return base1;

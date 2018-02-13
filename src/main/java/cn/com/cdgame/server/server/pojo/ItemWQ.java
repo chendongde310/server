@@ -15,7 +15,7 @@ public class ItemWQ {
     @Column(name = "item_with")
     private int with; //武器偏向
     @Column(name = "item_base1")
-    private int base1; //护甲
+    private int base1; //基础伤害
     @Column(name = "item_base2")
     private int base2; //攻击速度
     @Column(name = "item_base3")

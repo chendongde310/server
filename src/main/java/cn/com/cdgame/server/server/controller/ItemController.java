@@ -66,8 +66,8 @@ public class ItemController {
 
     @ResponseBody
     @RequestMapping(value = "/createFJ", method = RequestMethod.POST,
-            params = {"name", "type", "level", "rank", "depict","with","base1","base2","base3","sx0","sx1","sx1","sx3","skill", "author"})
-    String createFJ(String name, int type, int level, int rank, String depict, int with, int base1, int base2, int base3, int sx0, int sx1, int sx2,int sx3, String skill, String author) {
+            params = {"name", "type", "level", "rank", "depict","base1","base2","base3","sx0","sx1","sx1","sx3","skill", "author"})
+    String createFJ(String name, int type, int level, int rank, String depict, int base1, int base2, int base3, int sx0, int sx1, int sx2,int sx3, String skill, String author) {
         ItemFJ itemFJ = itemFJService.findByName(name);
         if (itemFJ == null) {
             itemFJ = new ItemFJ();
@@ -78,7 +78,6 @@ public class ItemController {
             itemFJ.setDepict(depict);
             itemFJ.setSkill(skill);
             itemFJ.setAuthor(author);
-            itemFJ.setWith(with);
             itemFJ.setBase1(base1);
             itemFJ.setBase2(base2);
             itemFJ.setBase3(base3);
