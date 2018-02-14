@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ItemController {
     @Autowired
     private ItemFJService itemFJService;
+    @Autowired
     private ItemWQService itemWQService;
+    @Autowired
     private ItemSPService itemSPService;
 
 
