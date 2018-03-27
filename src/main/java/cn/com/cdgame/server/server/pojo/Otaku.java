@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "f_otaku")
 public class Otaku {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column(name = "key")
     private String key;
@@ -23,5 +23,13 @@ public class Otaku {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
