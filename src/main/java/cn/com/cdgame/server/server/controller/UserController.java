@@ -42,6 +42,7 @@ public class UserController {
 
     /**
      * 查询个人信息
+     * 我的心在心中
      */
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public @ResponseBody
