@@ -34,7 +34,7 @@ public class OTAKUController {
     @RequestMapping(value = "/key", method = RequestMethod.GET)
     public @ResponseBody
     String info() {
-        List<Otaku> otakus = otakuService.findAll();
+        List<Otaku> otakus = otakuService.findAllBy();
         if (otakus != null && otakus.get(0) != null) {
             return Result.create(0, "KET获取成功", otakus.get(0).getKey());
 
